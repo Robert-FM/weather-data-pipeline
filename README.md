@@ -6,7 +6,7 @@ Pipeline em Python que consulta as condições meteorológicas atuais de Recife 
 
 ![Arquitetura de Dados Meteorológicos em Nuvem](<Arquitetura de Dados Meteorológicos em Nuvem.png>)
 
-A figura apresenta o ambiente em nuvem descrito no [relatório técnico](Relatorio_Tecnico_Weather_Data_Pipeline_v1.5.md), com Oracle Cloud, orquestração pelo Apache Airflow e persistência no PostgreSQL. As instruções deste README cobrem a execução local do ETL; os arquivos de implantação e a DAG do Airflow não estão presentes nesta cópia do repositório.
+A figura apresenta o ambiente em nuvem, com Oracle Cloud, orquestração pelo Apache Airflow e persistência no PostgreSQL. As instruções deste README cobrem a execução local do ETL; os arquivos de implantação e a DAG do Airflow não estão presentes nesta cópia do repositório.
 
 ## ✨ Funcionamento
 
