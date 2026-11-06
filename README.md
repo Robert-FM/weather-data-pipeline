@@ -2,6 +2,12 @@
 
 Pipeline em Python que consulta as condições meteorológicas atuais de Recife na API OpenWeatherMap, salva a resposta em JSON, transforma os dados em um DataFrame e os carrega no PostgreSQL. O projeto demonstra integração com API REST, transformação de dados e persistência com controle de duplicidade.
 
+## 🏗️ Arquitetura de Dados Meteorológicos em Nuvem
+
+![Arquitetura de Dados Meteorológicos em Nuvem](<Arquitetura de Dados Meteorológicos em Nuvem.png>)
+
+A figura apresenta o ambiente em nuvem descrito no [relatório técnico](Relatorio_Tecnico_Weather_Data_Pipeline_v1.5.md), com Oracle Cloud, orquestração pelo Apache Airflow e persistência no PostgreSQL. As instruções deste README cobrem a execução local do ETL; os arquivos de implantação e a DAG do Airflow não estão presentes nesta cópia do repositório.
+
 ## ✨ Funcionamento
 
 1. **Extração:** consulta o endpoint `https://api.openweathermap.org/data/2.5/weather`, com país `BR`, unidades métricas e descrições em português. A requisição tem timeout de 30 segundos e verifica erros HTTP.
