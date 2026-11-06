@@ -17,3 +17,6 @@ data/
 # Backups do PostgreSQL
 backups/
 *.dump
+
+# Relatório técnico pessoal
+/Relatorio_Tecnico_Weather_Data_Pipeline_v1.5.md
