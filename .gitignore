@@ -1,10 +1,15 @@
-# Python-generated files
-__pycache__/
-*.py[oc]
-build/
-dist/
-wheels/
-*.egg-info
+# Variáveis de ambiente e credenciais
+.env
+.env.*
+!.env.example
 
-# Virtual environments
-.venv
+# Ambiente virtual
+.venv/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Dados locais
+data/
