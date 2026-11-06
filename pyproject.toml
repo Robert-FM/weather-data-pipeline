@@ -7,7 +7,13 @@ authors = [
     { name = "Robert-FM", email = "robertfmelo29@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pandas>=3.1.1",
+    "psycopg2-binary>=2.9.13",
+    "python-dotenv>=1.2.4",
+    "requests>=2.34.2",
+    "sqlalchemy>=2.1.8",
+]
 
 [project.scripts]
 engenharia-dados = "engenharia_dados:main"
