@@ -1,5 +1,6 @@
 
 import json
+import os
 from pathlib import Path
 
 import requests
@@ -47,7 +48,13 @@ def extract_weather_data(city: str = "Recife") -> dict:
     data = response.json()
 
     # Define o caminho do arquivo de saída
-    output_path = Path("data/weather_data.json")
+    # Utiliza WEATHER_DATA_PATH quando configurada
+    output_path = Path(
+        os.getenv(
+            "WEATHER_DATA_PATH",
+            "data/weather_data.json",
+        )
+    )
 
     # Cria o diretório caso não exista
     output_path.parent.mkdir(

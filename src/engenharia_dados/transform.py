@@ -1,26 +1,50 @@
 
 import json
+import os
 from pathlib import Path
 
 import pandas as pd
 
+from engenharia_dados.config import load_environment
+
 
 def transform_weather_data(
-    input_path: str = "data/weather_data.json",
+    input_path: str | None = None,
 ) -> pd.DataFrame:
     """
     Transforma os dados JSON da OpenWeatherMap
     em um DataFrame estruturado.
 
     Args:
-        input_path: Caminho do arquivo JSON.
+        input_path: Caminho opcional do arquivo JSON.
+            Se não informado, utiliza WEATHER_DATA_PATH
+            ou o caminho padrão data/weather_data.json.
 
     Returns:
         DataFrame com os dados meteorológicos.
     """
 
+    # Carrega as variáveis do arquivo .env, se disponível
+    load_environment()
+
+    # Define o caminho do arquivo JSON
+    json_path = Path(
+        input_path
+        if input_path is not None
+        else os.getenv(
+            "WEATHER_DATA_PATH",
+            "data/weather_data.json",
+        )
+    )
+
+    # Verifica se o arquivo existe
+    if not json_path.is_file():
+        raise FileNotFoundError(
+            f"Arquivo JSON não encontrado: {json_path}"
+        )
+
     # Carrega os dados extraídos
-    with Path(input_path).open(
+    with json_path.open(
         "r",
         encoding="utf-8",
     ) as file:
@@ -57,5 +81,6 @@ if __name__ == "__main__":
 
     print("\nDados transformados com sucesso!\n")
     print(df.to_string(index=False))
+
     print("\nTipos de dados:")
     print(df.dtypes)
