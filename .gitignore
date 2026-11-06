@@ -13,3 +13,7 @@ __pycache__/
 
 # Dados locais
 data/
+
+# Backups do PostgreSQL
+backups/
+*.dump
